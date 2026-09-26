@@ -24,6 +24,25 @@
   }
 
   /* Scroll reveals */
+  /* Animated fact counters (final values are already in the HTML;
+     without JS or under reduced motion nothing changes) */
+  function startCount(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = "1";
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    var prefix = el.getAttribute("data-prefix") || "";
+    var suffix = el.getAttribute("data-suffix") || "";
+    var t0 = null;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / 1200, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
   var revealEls = document.querySelectorAll(".reveal");
   if (reducedMotion || !("IntersectionObserver" in window)) {
     revealEls.forEach(function (el) { el.classList.add("visible"); });
@@ -35,6 +54,7 @@
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
           io.unobserve(entry.target);
+          entry.target.querySelectorAll("[data-count]").forEach(startCount);
         }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
@@ -109,5 +129,78 @@
     toTop.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
     });
+  }
+
+  /* Reading progress bar */
+  var progress = document.querySelector(".read-progress");
+  if (progress) {
+    var updateProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      progress.style.transform = "scaleX(" + p + ")";
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  }
+
+  /* Trip planner: desire -> season, months and caveats */
+  var plannerWants = document.querySelector(".planner-wants");
+  if (plannerWants) {
+    var PLANNER = {
+      whales: {
+        season: "Май — август",
+        months: [5, 6, 7, 8],
+        text: "С мая по август к берегу подходят кормиться горбачи — главные киты Териберки. " +
+          "Регулярно встречаются малые полосатики, изредка — косатки, финвалы и белухи.",
+        note: "Встреча не гарантирована: киты — дикие животные, а в шторм выходы в море отменяют. " +
+          "В высокий сезон жильё занимают заранее."
+      },
+      aurora: {
+        season: "Сентябрь — начало апреля",
+        months: [9, 10, 11, 12, 1, 2, 3],
+        text: "С сентября по март — начало апреля сияния возможны в любую ясную ночь. Пик — " +
+          "полярная ночь: с 1 декабря по 12 января солнце не поднимается 43 дня.",
+        note: "Нужны солнечная активность и чистое небо — гарантий нет. Зимой возможны метели: " +
+          "дорогу периодически закрывают."
+      },
+      polar: {
+        season: "Конец мая — конец июля",
+        months: [5, 6, 7],
+        text: "Примерно с конца мая до конца июля солнце не заходит вовсе: море, тундра и сопки " +
+          "в круглосуточном свету — это же разгар сезона китов.",
+        note: "Ночей нет вообще: плотные шторы не помешают."
+      },
+      fest: {
+        season: "Сентябрь",
+        months: [9],
+        text: "Ежегодный арктический фестиваль «Териберка» проходит в сентябре и идёт с 2015 года: " +
+          "музыка, гастрономическая программа, эко-проекты.",
+        note: "В фестивальные дни гостей особенно много — жильё стоит бронировать сильно заранее."
+      }
+    };
+    var monthCells = document.querySelectorAll(".planner-months span");
+    var pSeason = document.querySelector(".planner-season");
+    var pText = document.querySelector(".planner-text");
+    var pNote = document.querySelector(".planner-note");
+    function showWant(key) {
+      var d = PLANNER[key];
+      if (!d) return;
+      monthCells.forEach(function (s) {
+        s.classList.toggle("on", d.months.indexOf(+s.getAttribute("data-m")) !== -1);
+      });
+      pSeason.textContent = d.season;
+      pText.textContent = d.text;
+      pNote.textContent = d.note;
+    }
+    plannerWants.addEventListener("click", function (e) {
+      var btn = e.target.closest(".chip");
+      if (!btn) return;
+      plannerWants.querySelectorAll(".chip").forEach(function (b) {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      showWant(btn.getAttribute("data-want"));
+    });
+    showWant("whales");
   }
 })();

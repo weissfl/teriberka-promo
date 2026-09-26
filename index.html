@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#0b1420">
   <link rel="canonical" href="https://weissfl.github.io/teriberka-promo/">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="preload" as="image" href="assets/img/coast.jpg">
+  <link rel="preload" as="image" imagesrcset="assets/img/coast-960.webp 960w, assets/img/coast.webp 1920w" imagesizes="100vw">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Териберка — село на берегу Баренцева моря">
   <meta property="og:description" content="Киты, северное сияние и полярная ночь в селе на краю европейской России — материал по проверенным источникам, сентябрь 2026.">
@@ -27,12 +27,33 @@
     "address": { "@type": "PostalAddress", "addressRegion": "Мурманская область", "addressCountry": "RU" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Это же просто село, а не курорт — не разочаруюсь?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Териберка — действующее село: гостевые дома, кафе и музей поморского быта соседствуют с заброшенным рыбокомбинатом. Если ждать курортного сервиса — будет разочарование; если ехать за океаном, тундрой и тишиной — место работает безотказно." } },
+      { "@type": "Question", "name": "Насколько это безопасно?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Главные риски — погода и рельеф: в шторм выходы в море отменяют, камни на пляжах скользкие, зимой дорогу периодически закрывают в метель. В море — только с местными опытными капитанами и с оглядкой на предупреждения ГУ МЧС; в Новой Териберке есть амбулатория." } },
+      { "@type": "Question", "name": "А если погода испортится и всё сорвётся?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Киты и сияние — вероятность, а не услуга. Работает простое правило — закладывать запасной день. Даже в непогоду остаётся штормовая волна с берега, музей поморского быта, арктическая кухня и вид на губу Териберскую." } },
+      { "@type": "Question", "name": "Доберусь ли я без машины?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Да: автобус №241 от мурманского автовокзала несколько раз в неделю, 3,5–4 часа в пути, билет примерно 720–820 ₽ (данные на 2026 год); с января 2026 года ходит и экспериментальный №241Э через аэропорт. Расписание стоит сверять перед поездкой." } },
+      { "@type": "Question", "name": "Когда выше шанс увидеть китов и сияние?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Киты подходят к берегу с мая по август, сияния возможны с сентября по март — начало апреля с пиком в полярную ночь. Гарантий нет ни в одном месяце." } },
+      { "@type": "Question", "name": "Нужен ли пропуск в природный парк?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Да: посещение водопада Батарейского и пляжа «яйца драконов» — по пропуску с экологическим сбором, оформляется на сайте Минприроды Мурманской области. С 2023 года машины оставляют примерно в километре от водопада." } }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
   <script defer src="js/aurora.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#about">К содержанию</a>
+  <div class="read-progress" aria-hidden="true"></div>
 
   <header class="site-head">
     <div class="container nav">
@@ -49,6 +70,7 @@
         <li><a href="#history">История</a></li>
         <li><a href="#transport">Дорога</a></li>
         <li><a href="#practical">Практика</a></li>
+        <li><a href="#faq">Вопросы</a></li>
         <li><a href="#gallery">Галерея</a></li>
       </ul>
     </div>
@@ -57,7 +79,10 @@
   <main id="top">
 
     <section class="hero">
-      <div class="hero-bg" role="img" aria-label="Скалистый берег Баренцева моря восточнее Териберки"></div>
+      <picture class="hero-bg">
+        <source type="image/webp" srcset="assets/img/coast-960.webp 960w, assets/img/coast.webp 1920w" sizes="100vw">
+        <img src="assets/img/coast.jpg" alt="Скалистый берег Баренцева моря восточнее Териберки" fetchpriority="high">
+      </picture>
       <div class="container">
         <p class="eyebrow">Мурманская область · Кольский полуостров</p>
         <h1>Териберка</h1>
@@ -76,8 +101,7 @@
         <p class="lead reveal">На запад от Териберки берег Баренцева моря недоступен для автомобилей,
           на восток — тоже. Здесь асфальтированная дорога из Мурманска заканчивается у самого океана.</p>
         <div class="split reveal">
-          <div class="split-media">
-            <img src="assets/img/village.jpg" alt="Териберка в устье одноимённой реки, вид с высоты" loading="lazy" decoding="async">
+          <div class="split-media"><picture><source type="image/webp" srcset="assets/img/village-960.webp 960w, assets/img/village.webp 1920w" sizes="(max-width:900px) 92vw, 46vw"><img src="assets/img/village.jpg" alt="Териберка в устье одноимённой реки, вид с высоты" loading="lazy" decoding="async"></picture>
           </div>
           <div>
             <p>Териберка стоит на Мурманском берегу Кольского полуострова, в губе Териберской.
@@ -93,8 +117,8 @@
         <div class="stats reveal">
           <div class="stat"><b>69°09′</b><span>северной широты</span></div>
           <div class="stat"><b>120–130 км</b><span>от Мурманска по дороге</span></div>
-          <div class="stat"><b>~550</b><span>жителей (перепись 2021)</span></div>
-          <div class="stat"><b>43 дня</b><span>длится полярная ночь</span></div>
+          <div class="stat"><b data-count="550" data-prefix="~">~550</b><span>жителей (перепись 2021)</span></div>
+          <div class="stat"><b data-count="43" data-suffix=" дня">43 дня</b><span>длится полярная ночь</span></div>
         </div>
       </div>
     </section>
@@ -105,8 +129,7 @@
         <h2 class="reveal">Киты подходят к самому берегу</h2>
         <p class="lead reveal">Летом у побережья Териберки кормятся киты: их приводят косяки мойвы и сельди.</p>
         <div class="split rev reveal">
-          <div class="split-media">
-            <img src="assets/img/whales.jpg" alt="Киты у побережья Териберки в Баренцевом море" loading="lazy" decoding="async">
+          <div class="split-media"><picture><source type="image/webp" srcset="assets/img/whales-960.webp 960w, assets/img/whales.webp 1920w" sizes="(max-width:900px) 92vw, 46vw"><img src="assets/img/whales.jpg" alt="Киты у побережья Териберки в Баренцевом море" loading="lazy" decoding="async"></picture>
           </div>
           <div>
             <p>С мая по август к берегу подходят горбачи — главные киты Териберки. Они выпрыгивают
@@ -135,8 +158,7 @@
         <h2 class="reveal">Сияние, полярная ночь и полярный день</h2>
         <p class="lead reveal">С начала осени до начала весны над Териберкой стоит сезон северного сияния.</p>
         <div class="split reveal">
-          <div class="split-media">
-            <img src="assets/img/aurora.jpg" alt="Северное сияние над берегом Баренцева моря в Териберке" loading="lazy" decoding="async">
+          <div class="split-media"><picture><source type="image/webp" srcset="assets/img/aurora-960.webp 960w, assets/img/aurora.webp 1920w" sizes="(max-width:900px) 92vw, 46vw"><img src="assets/img/aurora.jpg" alt="Северное сияние над берегом Баренцева моря в Териберке" loading="lazy" decoding="async"></picture>
           </div>
           <div>
             <p>С сентября по март — начало апреля сияния возможны в любую ясную ночь, а их пик приходится
@@ -163,7 +185,7 @@
           Между центрами около трёх километров.</p>
         <div class="cards">
           <article class="card reveal">
-            <div class="card-media"><img src="assets/img/ship-graveyard.jpg" alt="Кладбище кораблей в Териберке" loading="lazy" decoding="async"></div>
+            <div class="card-media"><picture><source type="image/webp" srcset="assets/img/ship-graveyard-960.webp 960w, assets/img/ship-graveyard.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/ship-graveyard.jpg" alt="Кладбище кораблей в Териберке" loading="lazy" decoding="async"></picture></div>
             <div class="card-body">
               <h3>Кладбище кораблей</h3>
               <p>Брошенные деревянные рыболовные суда, стоящие на берегу с середины 1950-х годов.
@@ -172,7 +194,7 @@
             </div>
           </article>
           <article class="card reveal">
-            <div class="card-media"><img src="assets/img/dragon-eggs.jpg" alt="Пляж «Яйца драконов» с огромными сферическими валунами" loading="lazy" decoding="async"></div>
+            <div class="card-media"><picture><source type="image/webp" srcset="assets/img/dragon-eggs-960.webp 960w, assets/img/dragon-eggs.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/dragon-eggs.jpg" alt="Пляж «Яйца драконов» с огромными сферическими валунами" loading="lazy" decoding="async"></picture></div>
             <div class="card-body">
               <h3>Пляж «Яйца драконов»</h3>
               <p>Валунный пляж, где лежат сотни огромных камней, идеально окатанных морем до формы шара.
@@ -181,7 +203,7 @@
             </div>
           </article>
           <article class="card reveal">
-            <div class="card-media"><img src="assets/img/waterfall.jpg" alt="Водопад Батарейский падает в Баренцево море" loading="lazy" decoding="async"></div>
+            <div class="card-media"><picture><source type="image/webp" srcset="assets/img/waterfall-960.webp 960w, assets/img/waterfall.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/waterfall.jpg" alt="Водопад Батарейский падает в Баренцево море" loading="lazy" decoding="async"></picture></div>
             <div class="card-body">
               <h3>Водопад Батарейский</h3>
               <p>Ручей из озера Малое Батарейское срывается каскадами со скалы прямо в море — у подножия
@@ -191,7 +213,7 @@
             </div>
           </article>
           <article class="card reveal">
-            <div class="card-media"><img src="assets/img/lighthouse.jpg" alt="Териберский маяк на мысу" loading="lazy" decoding="async"></div>
+            <div class="card-media"><picture><source type="image/webp" srcset="assets/img/lighthouse-960.webp 960w, assets/img/lighthouse.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/lighthouse.jpg" alt="Териберский маяк на мысу" loading="lazy" decoding="async"></picture></div>
             <div class="card-body">
               <h3>Маяк и старое кладбище</h3>
               <p>Маяк на мысу у Старой Териберки стоит с рубежа XIX–XX веков — он провожал и встречал
@@ -200,7 +222,7 @@
             </div>
           </article>
           <article class="card reveal">
-            <div class="card-media"><img src="assets/img/abandoned-house.jpg" alt="Заброшенный дом в Старой Териберке" loading="lazy" decoding="async"></div>
+            <div class="card-media"><picture><source type="image/webp" srcset="assets/img/abandoned-house-960.webp 960w, assets/img/abandoned-house.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/abandoned-house.jpg" alt="Заброшенный дом в Старой Териберке" loading="lazy" decoding="async"></picture></div>
             <div class="card-body">
               <h3>Старая Териберка</h3>
               <p>Историческое село XVI века: закатанные доски, заброшенный рыбокомбинат, дома, смотрящие
@@ -209,7 +231,7 @@
             </div>
           </article>
           <article class="card reveal">
-            <div class="card-media"><img src="assets/img/tundra.jpg" alt="Тундра вокруг дороги на Териберку" loading="lazy" decoding="async"></div>
+            <div class="card-media"><picture><source type="image/webp" srcset="assets/img/tundra-960.webp 960w, assets/img/tundra.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/tundra.jpg" alt="Тундра вокруг дороги на Териберку" loading="lazy" decoding="async"></picture></div>
             <div class="card-body">
               <h3>Природный парк «Териберка»</h3>
               <p>Особо охраняемая территория площадью более 2400 гектаров: побережье, водопад, пляж
@@ -251,6 +273,24 @@
             <span class="s-months">Сентябрь — ноябрь</span>
             <p>Тундра вспыхивает красным и багровым, начинаются первые сияния. В сентябре проходит
               арктический фестиваль «Териберка», идущий с 2015 года. Шторма учащаются.</p>
+          </div>
+        </div>
+        <div class="planner reveal">
+          <h3>Когда ехать: подберите месяц</h3>
+          <p class="planner-sub">Выберите, что хотите увидеть, — подскажем сезон и о чём стоит помнить.</p>
+          <div class="planner-wants" role="group" aria-label="Что вы хотите увидеть в Териберке">
+            <button class="chip" type="button" data-want="whales" aria-pressed="true">Киты</button>
+            <button class="chip" type="button" data-want="aurora" aria-pressed="false">Северное сияние</button>
+            <button class="chip" type="button" data-want="polar" aria-pressed="false">Полярный день</button>
+            <button class="chip" type="button" data-want="fest" aria-pressed="false">Фестиваль</button>
+          </div>
+          <div class="planner-months" aria-hidden="true">
+            <span data-m="1">янв</span><span data-m="2">фев</span><span data-m="3">мар</span><span data-m="4">апр</span><span data-m="5">май</span><span data-m="6">июн</span><span data-m="7">июл</span><span data-m="8">авг</span><span data-m="9">сен</span><span data-m="10">окт</span><span data-m="11">ноя</span><span data-m="12">дек</span>
+          </div>
+          <div class="planner-out" aria-live="polite">
+            <p class="planner-season"></p>
+            <p class="planner-text"></p>
+            <p class="planner-note"></p>
           </div>
         </div>
       </div>
@@ -343,25 +383,76 @@
       </div>
     </section>
 
+    <section class="section" id="faq">
+      <div class="container">
+        <p class="kicker"><i>09</i>Частые вопросы</p>
+        <h2 class="reveal">Честные ответы на частые вопросы</h2>
+        <p class="lead reveal">То, о чём чаще всего спрашивают перед поездкой, — по проверенным фактам
+          и без прикрас.</p>
+        <div class="faq">
+          <details class="reveal">
+            <summary>Это же просто село, а не курорт — не разочаруюсь?</summary>
+            <p>Териберка — действующее село: гостевые дома, кафе и музей поморского быта соседствуют
+              с заброшенным рыбокомбинатом. Именно этот контраст и есть её главная сила. Если ждать
+              курортного сервиса — будет разочарование; если ехать за океаном, тундрой и тишиной —
+              место работает безотказно.</p>
+          </details>
+          <details class="reveal">
+            <summary>Насколько это безопасно?</summary>
+            <p>Главные риски — погода и рельеф. В шторм выходы в море отменяют: в ноябре 2025 года
+              лодка с туристами перевернулась у берега при официальном штормовом предупреждении —
+              все спасены. Камни на пляжах скользкие, зимой дорогу периодически закрывают в метель.
+              В море — только с местными опытными капитанами и с оглядкой на предупреждения ГУ МЧС;
+              в Новой Териберке есть амбулатория.</p>
+          </details>
+          <details class="reveal">
+            <summary>А если погода испортится и всё сорвётся?</summary>
+            <p>Погода здесь главнее планов: киты и сияние — вероятность, а не услуга. Работает простое
+              правило — закладывать запасной день. Даже в непогоду остаётся немало: штормовая волна
+              с берега, музей поморского быта, арктическая кухня и вид на губу Териберскую.</p>
+          </details>
+          <details class="reveal">
+            <summary>Доберусь ли я без машины?</summary>
+            <p>Да. Автобус №241 идёт от мурманского автовокзала несколько раз в неделю — 3,5–4 часа
+              в пути, билет примерно 720–820 ₽ (данные на 2026 год). С января 2026-го ходит
+              и экспериментальный №241Э через аэропорт Мурманска. Расписание стоит сверять перед
+              поездкой — подробности в разделе «Как добраться».</p>
+          </details>
+          <details class="reveal">
+            <summary>Когда выше шанс увидеть китов и сияние?</summary>
+            <p>Киты подходят к берегу с мая по август, сияния возможны с сентября по март — начало
+              апреля с пиком в полярную ночь. Гарантий нет ни в одном месяце — подобрать сезон под
+              своё желание поможет планировщик в разделе «Времена года».</p>
+          </details>
+          <details class="reveal">
+            <summary>Нужен ли пропуск в природный парк?</summary>
+            <p>Да: посещение водопада Батарейского и пляжа «яйца драконов» — по пропуску
+              с экологическим сбором, оформляется на сайте Минприроды Мурманской области. С 2023 года
+              машины оставляют примерно в километре от водопада.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="gallery">
       <div class="container">
-        <p class="kicker"><i>09</i>Галерея</p>
+        <p class="kicker"><i>10</i>Галерея</p>
         <h2 class="reveal">Териберка в кадрах</h2>
         <p class="lead reveal">Вся подборка на одной странице — нажмите на кадр, чтобы рассмотреть.</p>
         <div class="gallery-grid">
-          <button class="shot wide reveal"><img src="assets/img/aurora.jpg" alt="Северное сияние над берегом Баренцева моря" loading="lazy" decoding="async"><span class="shot-cap">Северное сияние над берегом Баренцева моря</span></button>
-          <button class="shot reveal"><img src="assets/img/village.jpg" alt="Териберка в устье одноимённой реки" loading="lazy" decoding="async"><span class="shot-cap">Териберка в устье одноимённой реки</span></button>
-          <button class="shot reveal"><img src="assets/img/village-panorama.jpg" alt="Вид на Териберку с окрестных сопок" loading="lazy" decoding="async"><span class="shot-cap">Вид на село с окрестных сопок</span></button>
-          <button class="shot wide reveal"><img src="assets/img/coast.jpg" alt="Скалистый берег Баренцева моря восточнее Териберки" loading="lazy" decoding="async"><span class="shot-cap">Скалистый берег Баренцева моря восточнее села</span></button>
-          <button class="shot reveal"><img src="assets/img/ship-graveyard.jpg" alt="Кладбище кораблей" loading="lazy" decoding="async"><span class="shot-cap">Кладбище кораблей: суда, стоящие на берегу с 1950-х</span></button>
-          <button class="shot reveal"><img src="assets/img/dragon-eggs.jpg" alt="Пляж «Яйца драконов»" loading="lazy" decoding="async"><span class="shot-cap">Пляж «Яйца драконов»: валуны, окатанные морем</span></button>
-          <button class="shot reveal"><img src="assets/img/waterfall.jpg" alt="Водопад Батарейский" loading="lazy" decoding="async"><span class="shot-cap">Водопад Батарейский падает в море каскадами</span></button>
-          <button class="shot reveal"><img src="assets/img/lighthouse.jpg" alt="Териберский маяк" loading="lazy" decoding="async"><span class="shot-cap">Маяк на мысу у Старой Териберки</span></button>
-          <button class="shot reveal"><img src="assets/img/abandoned-house.jpg" alt="Заброшенный дом в Старой Териберке" loading="lazy" decoding="async"><span class="shot-cap">Старая Териберка: следы ушедшей эпохи</span></button>
-          <button class="shot reveal"><img src="assets/img/whales.jpg" alt="Киты у побережья Териберки" loading="lazy" decoding="async"><span class="shot-cap">Киты у побережья Териберки</span></button>
-          <button class="shot reveal"><img src="assets/img/winter-waterfall.jpg" alt="Водопад у озера Малое Батарейское зимой" loading="lazy" decoding="async"><span class="shot-cap">Водопад у озера Малое Батарейское зимой</span></button>
-          <button class="shot reveal"><img src="assets/img/tundra.jpg" alt="Тундра за околицей" loading="lazy" decoding="async"><span class="shot-cap">Тундра за околицей: дальше дорог нет</span></button>
-          <button class="shot reveal"><img src="assets/img/bay-boats.jpg" alt="Лодки в губе Териберской" loading="lazy" decoding="async"><span class="shot-cap">Лодки в губе Териберской; на мысу — маяк</span></button>
+          <button class="shot wide reveal"><picture><source type="image/webp" srcset="assets/img/aurora-960.webp 960w, assets/img/aurora.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/aurora.jpg" alt="Северное сияние над берегом Баренцева моря" loading="lazy" decoding="async"></picture><span class="shot-cap">Северное сияние над берегом Баренцева моря</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/village-960.webp 960w, assets/img/village.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/village.jpg" alt="Териберка в устье одноимённой реки" loading="lazy" decoding="async"></picture><span class="shot-cap">Териберка в устье одноимённой реки</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/village-panorama-960.webp 960w, assets/img/village-panorama.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/village-panorama.jpg" alt="Вид на Териберку с окрестных сопок" loading="lazy" decoding="async"></picture><span class="shot-cap">Вид на село с окрестных сопок</span></button>
+          <button class="shot wide reveal"><picture><source type="image/webp" srcset="assets/img/coast-960.webp 960w, assets/img/coast.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/coast.jpg" alt="Скалистый берег Баренцева моря восточнее Териберки" loading="lazy" decoding="async"></picture><span class="shot-cap">Скалистый берег Баренцева моря восточнее села</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/ship-graveyard-960.webp 960w, assets/img/ship-graveyard.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/ship-graveyard.jpg" alt="Кладбище кораблей" loading="lazy" decoding="async"></picture><span class="shot-cap">Кладбище кораблей: суда, стоящие на берегу с 1950-х</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/dragon-eggs-960.webp 960w, assets/img/dragon-eggs.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/dragon-eggs.jpg" alt="Пляж «Яйца драконов»" loading="lazy" decoding="async"></picture><span class="shot-cap">Пляж «Яйца драконов»: валуны, окатанные морем</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/waterfall-960.webp 960w, assets/img/waterfall.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/waterfall.jpg" alt="Водопад Батарейский" loading="lazy" decoding="async"></picture><span class="shot-cap">Водопад Батарейский падает в море каскадами</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/lighthouse-960.webp 960w, assets/img/lighthouse.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/lighthouse.jpg" alt="Териберский маяк" loading="lazy" decoding="async"></picture><span class="shot-cap">Маяк на мысу у Старой Териберки</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/abandoned-house-960.webp 960w, assets/img/abandoned-house.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/abandoned-house.jpg" alt="Заброшенный дом в Старой Териберке" loading="lazy" decoding="async"></picture><span class="shot-cap">Старая Териберка: следы ушедшей эпохи</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/whales-960.webp 960w, assets/img/whales.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/whales.jpg" alt="Киты у побережья Териберки" loading="lazy" decoding="async"></picture><span class="shot-cap">Киты у побережья Териберки</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/winter-waterfall-960.webp 960w, assets/img/winter-waterfall.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/winter-waterfall.jpg" alt="Водопад у озера Малое Батарейское зимой" loading="lazy" decoding="async"></picture><span class="shot-cap">Водопад у озера Малое Батарейское зимой</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/tundra-960.webp 960w, assets/img/tundra.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/tundra.jpg" alt="Тундра за околицей" loading="lazy" decoding="async"></picture><span class="shot-cap">Тундра за околицей: дальше дорог нет</span></button>
+          <button class="shot reveal"><picture><source type="image/webp" srcset="assets/img/bay-boats-960.webp 960w, assets/img/bay-boats.webp 1920w" sizes="(max-width:720px) 92vw, 30vw"><img src="assets/img/bay-boats.jpg" alt="Лодки в губе Териберской" loading="lazy" decoding="async"></picture><span class="shot-cap">Лодки в губе Териберской; на мысу — маяк</span></button>
         </div>
       </div>
     </section>

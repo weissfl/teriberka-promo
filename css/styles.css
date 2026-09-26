@@ -169,7 +169,13 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("../assets/img/coast.jpg") center 30% / cover no-repeat;
+  display: block;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
   animation: kenburns 26s ease-out both;
 }
 @keyframes kenburns {
@@ -701,6 +707,143 @@ dialog.lightbox::backdrop {
   background:
     radial-gradient(55% 42% at 72% 18%, rgba(121, 224, 177, 0.16), transparent 70%),
     radial-gradient(48% 38% at 28% 8%, rgba(255, 138, 216, 0.12), transparent 70%);
+}
+
+/* Reading progress bar */
+
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 60;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Trip planner ("when to go") */
+
+.planner {
+  margin-top: 56px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: clamp(20px, 3vw, 32px);
+}
+.planner h3 {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+.planner-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+.planner-wants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+}
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: rgba(121, 224, 177, 0.12);
+  color: var(--accent);
+}
+.planner-months {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+  margin: 22px 0 16px;
+}
+.planner-months span {
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 0;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.3s, color 0.3s;
+}
+.planner-months span.on {
+  color: #06231a;
+  background: var(--accent);
+  font-weight: 600;
+}
+.planner-season {
+  font-family: var(--head);
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.planner-text {
+  color: #d3e0e7;
+  font-size: 0.97rem;
+}
+.planner-note {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 12px;
+}
+@media (max-width: 720px) {
+  .planner-months { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* FAQ accordion */
+
+.faq { max-width: 860px; }
+.faq details {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 0 22px;
+  margin-bottom: 12px;
+}
+.faq summary {
+  cursor: pointer;
+  padding: 18px 40px 18px 0;
+  font-size: 1.02rem;
+  color: var(--text);
+  list-style: none;
+  position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--accent);
+  font-size: 1.45rem;
+  line-height: 1;
+  transition: rotate 0.3s;
+}
+.faq details[open] summary::after { rotate: 45deg; }
+.faq details p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding-bottom: 18px;
 }
 
 /* ---------- Responsive ---------- */
