@@ -396,7 +396,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   color: var(--accent-2);
 }
 
-.card.text-card { justify-content: center; padding: 26px 24px; }
+.card.text-card { justify-content: flex-start; padding: 26px 24px; }
 .card.text-card h3 { margin-bottom: 10px; }
 
 /* Seasons */
@@ -409,6 +409,17 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 .season {
   border-top: 2px solid var(--line);
   padding-top: 18px;
+}
+.s-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.s-head svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+  flex: none;
 }
 .season .s-name {
   font-family: var(--head);
@@ -472,13 +483,18 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   padding: 20px 22px;
 }
 .info h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.98rem;
   margin-bottom: 6px;
   color: var(--text);
 }
-.info h3::before {
-  content: "— ";
+.info h3 svg {
+  width: 19px;
+  height: 19px;
   color: var(--accent);
+  flex: none;
 }
 .info p {
   font-size: 0.9rem;
