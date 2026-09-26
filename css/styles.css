@@ -414,18 +414,22 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 2px;
 }
 .s-head svg {
   width: 24px;
   height: 24px;
   color: var(--accent);
   flex: none;
+  /* optical: Prata's line box leaves more room below the caps,
+     so the icon needs a small lift to sit level with the text */
+  transform: translateY(-1.5px);
 }
 .season .s-name {
   font-family: var(--head);
   font-size: 1.4rem;
   display: block;
-  margin-bottom: 2px;
+  line-height: 1;
 }
 .season .s-months {
   font-size: 0.78rem;
